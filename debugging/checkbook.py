@@ -33,7 +33,8 @@ class Checkbook:
 def main():
     cb = Checkbook()
     while True:
-        action = input("What would you like to do? (deposit, withdraw, balance, exit): ").strip().lower()
+        print('What would you like to do?')
+        action = input("(deposit, withdraw, balance, exit): ").strip().lower()
         if action == 'exit':
             print("Thank you for using the checkbook. Goodbye!")
             break
