@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Tic-Tac-Toe game with PEP8-compliant code."""
+
+
 def print_board(board):
     """Display the current state of the Tic-Tac-Toe board."""
     print("\nCurrent board:")
@@ -16,7 +19,8 @@ def check_winner(board):
 
     # Check columns
     for col in range(len(board[0])):
-        if board[0][col] == board[1][col] == board[2][col] and board[0][col] != " ":
+        if (board[0][col] == board[1][col] == board[2][col]
+                and board[0][col] != " "):
             return True
 
     # Check diagonals
@@ -43,8 +47,7 @@ def get_valid_input(prompt):
             value = int(input(prompt))
             if value in [0, 1, 2]:
                 return value
-            else:
-                print("Invalid input! Please enter 0, 1, or 2.")
+            print("Invalid input! Please enter 0, 1, or 2.")
         except ValueError:
             print("Invalid input! Please enter a number (0, 1, or 2).")
 
@@ -57,8 +60,13 @@ def tic_tac_toe():
     while True:
         print_board(board)
         print(f"Player {player}'s turn:")
-        row = get_valid_input("Enter row (0, 1, or 2): ")
-        col = get_valid_input("Enter column (0, 1, or 2): ")
+
+        row = get_valid_input(
+            "Enter row (0, 1, or 2): "
+        )
+        col = get_valid_input(
+            "Enter column (0, 1, or 2): "
+        )
 
         if board[row][col] != " ":
             print("That spot is already taken! Try again.")
@@ -68,7 +76,9 @@ def tic_tac_toe():
 
         if check_winner(board):
             print_board(board)
-            print(f"🎉 Player {player} wins!")
+            print(
+                f"🎉 Player {player} wins!"
+            )
             break
 
         if is_full(board):
